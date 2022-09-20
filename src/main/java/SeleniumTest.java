@@ -1,9 +1,11 @@
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SeleniumTest {
@@ -99,7 +101,8 @@ public class SeleniumTest {
 //    }
 
     /**
-     * 경기 일정 및 결과 / 네이버 매치 링크 크롤링
+     * 경기 일정 및 결과 / 네이버 매치 링크 크롤링  -  경기 날짜 반영 완료
+     * 최종 크롤링 결과물 , DTO 에 저장
      */
     public void crawlSchedule() {
 
@@ -110,21 +113,22 @@ public class SeleniumTest {
             System.out.println(driver.getPageSource());
             WebElement monthlySchedule = driver.findElement(By.id("_monthlyScheduleList"));
             List<WebElement> monthlyScheduleElements = monthlySchedule.findElements(By.tagName("tr"));
-
+            String date = "";
+            List<Match> matches = new ArrayList<>();
             for (WebElement webElement : monthlyScheduleElements) {
+                boolean containDate = isContainDate(webElement);
                 List<WebElement> td = webElement.findElements(By.tagName("td"));
-                if(td.size()>2) {
-                    System.out.println("td  getText() = " + td.get(0).getText());
-                    System.out.println("td  get(1).getText() = " + td.get(1).getText());
-                    System.out.println("td  get(2).getText() = " + td.get(2).getText());
-                    System.out.println("td  = " + webElement.findElement(By.className("broadcast")).findElement(By.tagName("a")).getAttribute("href"));
-                }else{
-                    System.out.println("td  = " + webElement.findElement(By.tagName("div")).getText());
-                    System.out.println("경기 일정이 존재하지 않습니다.");
+                if (containDate) {
+                    date = webElement.findElement(By.tagName("th")).getText();
+                }
+                if (td.size() > 2) {
+                    matches.add(new ExistMatch(date, td.get(0).getText(), td.get(1).getText(),
+                            webElement.findElement(By.className("broadcast")).findElement(By.tagName("a")).getAttribute("href")));
+                } else {
+                    matches.add(new NoMatchDate(date));
                 }
 
             }
-
         } catch (Exception e) {
 
             e.printStackTrace();
@@ -136,5 +140,13 @@ public class SeleniumTest {
 
     }
 
+    private boolean isContainDate(WebElement webElement) {
+        try {
+            webElement.findElement(By.tagName("th"));
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        return true;
+    }
 
 }
