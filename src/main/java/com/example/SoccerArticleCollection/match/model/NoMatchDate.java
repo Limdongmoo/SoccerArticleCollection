@@ -1,9 +1,11 @@
+package com.example.SoccerArticleCollection.match.model;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class NoMatchDate extends Match{
+public class NoMatchDate extends Match {
     private String Date;
     private final String content = "경기 일정이 없습니다.";
 

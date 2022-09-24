@@ -1,9 +1,11 @@
+package com.example.SoccerArticleCollection.match.model;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class ExistMatch extends Match{
+public class ExistMatch extends Match {
     private String Date;
     private String matchInfo;
     private String matchName;
