@@ -1,22 +1,27 @@
 package com.example.SoccerArticleCollection.match.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.Entity;
 
 @Getter
 @Setter
+@Entity
+@NoArgsConstructor
 public class NoMatchDate extends Match {
-    private String Date;
+
     private final String content = "경기 일정이 없습니다.";
 
     public NoMatchDate(String date) {
-        Date = date;
+        super(date);
     }
 
     @Override
     public String toString() {
-        return "NoMatchDate{" +
-                "Date='" + Date + '\'' +
+        return "NoMatchDate{" + this.date +
+                "Date='"  + '\'' +
                 ", content='" + content + '\'' +
                 '}';
     }

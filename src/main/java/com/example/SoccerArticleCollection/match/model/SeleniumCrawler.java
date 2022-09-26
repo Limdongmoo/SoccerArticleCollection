@@ -9,15 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SeleniumTest {
-
-    public static void main(String[] args) {
-
-        SeleniumTest selTest = new SeleniumTest();
-        selTest.crawlSchedule();
-
-    }
-
+public class SeleniumCrawler {
 
     //WebDriver
     private WebDriver driver;
@@ -29,7 +21,7 @@ public class SeleniumTest {
     //크롤링 할 URL
     private String base_url;
 
-    public SeleniumTest() {
+    public SeleniumCrawler() {
         super();
 
         //System Property SetUp
@@ -105,11 +97,11 @@ public class SeleniumTest {
      * 경기 일정 및 결과 / 네이버 매치 링크 크롤링  -  경기 날짜 반영 완료
      * 최종 크롤링 결과물 , DTO 에 저장
      */
-    public void crawlSchedule() {
+    public void crawlSchedule(UrlMaker urlMaker) {
 
         try {
             //get page (= 브라우저에서 url을 주소창에 넣은 후 request 한 것과 같다)
-            base_url = "https://sports.news.naver.com/wfootball/schedule/index?year=2022&month=09&category=epl";
+            base_url = "https://sports.news.naver.com/wfootball/schedule/index?" + urlMaker.getYear() + urlMaker.getMonth() + urlMaker.getCategory();
             driver.get(base_url);
             System.out.println(driver.getPageSource());
             WebElement monthlySchedule = driver.findElement(By.id("_monthlyScheduleList"));
@@ -128,8 +120,11 @@ public class SeleniumTest {
                 } else {
                     matches.add(new NoMatchDate(date));
                 }
-
             }
+            for (Match match : matches) {
+                System.out.println("match = " + match);
+            }
+
         } catch (Exception e) {
 
             e.printStackTrace();
