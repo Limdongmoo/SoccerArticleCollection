@@ -1,15 +1,20 @@
 package com.example.SoccerArticleCollection.match.model;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SeleniumCrawler {
+//    public static void main(String[] args) {
+//        SeleniumCrawler seleniumCrawler = new SeleniumCrawler();
+//        UrlMaker urlMaker = new UrlMaker();
+//
+//        urlMaker.setYear("year=2022");
+//        urlMaker.setMonth("&month=09");
+//        seleniumCrawler.crawlSchedule(urlMaker);
+//    }
 
     //WebDriver
     private WebDriver driver;
@@ -97,7 +102,7 @@ public class SeleniumCrawler {
      * 경기 일정 및 결과 / 네이버 매치 링크 크롤링  -  경기 날짜 반영 완료
      * 최종 크롤링 결과물 , DTO 에 저장
      */
-    public void crawlSchedule(UrlMaker urlMaker) {
+    public List<Match> crawlSchedule(UrlMaker urlMaker) {
 
         try {
             //get page (= 브라우저에서 url을 주소창에 넣은 후 request 한 것과 같다)
@@ -115,25 +120,42 @@ public class SeleniumCrawler {
                     date = webElement.findElement(By.tagName("th")).getText();
                 }
                 if (td.size() > 2) {
-                    matches.add(new ExistMatch(date, td.get(0).getText(), td.get(1).getText(),
-                            webElement.findElement(By.className("broadcast")).findElement(By.tagName("a")).getAttribute("href")));
+                    MatchFromCrawler matchFromCrawler = new MatchFromCrawler(date, td.get(0).getText(), td.get(1).getText(),
+                            webElement.findElement(By.className("broadcast")).findElement(By.tagName("a")).getAttribute("href"));
+                    String[] splittedMatchInfo = matchFromCrawler.getMatchName().split("\n");
+
+                    if (splittedMatchInfo.length == 2) {
+                        Match from = MatchFromCrawler.from(matchFromCrawler, splittedMatchInfo[0], splittedMatchInfo[1]);
+                        matches.add(from);
+                    } else if (splittedMatchInfo.length == 4) {
+                        Match from = MatchFromCrawler.from(matchFromCrawler, splittedMatchInfo[0], Integer.parseInt(splittedMatchInfo[1]),
+                                splittedMatchInfo[2], Integer.parseInt(splittedMatchInfo[3]), "무승부");
+                        matches.add(from);
+                    } else if (splittedMatchInfo.length == 5) {
+                        if (splittedMatchInfo[2].equals("승리팀")) {
+                            Match from = MatchFromCrawler.from(matchFromCrawler, splittedMatchInfo[0], Integer.parseInt(splittedMatchInfo[1]),
+                                    splittedMatchInfo[3], Integer.parseInt(splittedMatchInfo[4]), splittedMatchInfo[0]);
+                            matches.add(from);
+                        }
+                        else{
+                            Match from = MatchFromCrawler.from(matchFromCrawler, splittedMatchInfo[0], Integer.parseInt(splittedMatchInfo[1]),
+                                    splittedMatchInfo[3], Integer.parseInt(splittedMatchInfo[4]), splittedMatchInfo[3]);
+                            matches.add(from);
+                        }
+                    }
                 } else {
-                    matches.add(new NoMatchDate(date));
+                    matches.add(new Match(date));
                 }
+
             }
-            for (Match match : matches) {
-                System.out.println("match = " + match);
-            }
+            driver.close();
+            return matches;
 
         } catch (Exception e) {
-
-            e.printStackTrace();
-
-        } finally {
-
             driver.close();
-        }
+            throw new WebDriverException();
 
+        }
     }
 
     private boolean isContainDate(WebElement webElement) {

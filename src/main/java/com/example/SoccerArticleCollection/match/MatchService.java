@@ -18,11 +18,17 @@ public class MatchService {
     /**
      * 1. 매치 List 저장하기
      */
-    public List<Match> saveMatchList() {
+    public void saveMatchList() {
         SeleniumCrawler seleniumCrawler = new SeleniumCrawler();
+        String[] years = {"2022", "2023"};
+        String[] months = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"};
+
         UrlMaker urlMaker = new UrlMaker();
-        String year = "2022";
-        String month = "09";
+        urlMaker.setYear("year=2022");
+        urlMaker.setMonth("&month=09");
+
+        matchRepository.saveAll(seleniumCrawler.crawlSchedule(urlMaker));
+
 
     }
 
