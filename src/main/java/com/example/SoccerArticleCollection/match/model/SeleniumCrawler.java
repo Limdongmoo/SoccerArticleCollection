@@ -116,10 +116,13 @@ public class SeleniumCrawler {
             for (WebElement webElement : monthlyScheduleElements) {
                 boolean containDate = isContainDate(webElement);
                 List<WebElement> td = webElement.findElements(By.tagName("td"));
+                System.out.println("6 = " + 6);
                 if (containDate) {
                     date = webElement.findElement(By.tagName("th")).getText();
+                    System.out.println("7 = " + 7);
                 }
                 if (td.size() > 2) {
+                    System.out.println("8 = " + 8);
                     MatchFromCrawler matchFromCrawler = new MatchFromCrawler(date, td.get(0).getText(), td.get(1).getText(),
                             webElement.findElement(By.className("broadcast")).findElement(By.tagName("a")).getAttribute("href"));
                     String[] splittedMatchInfo = matchFromCrawler.getMatchName().split("\n");
@@ -132,16 +135,16 @@ public class SeleniumCrawler {
                                 splittedMatchInfo[2], Integer.parseInt(splittedMatchInfo[3]), "무승부");
                         matches.add(from);
                     } else if (splittedMatchInfo.length == 5) {
+                        Match from;
                         if (splittedMatchInfo[2].equals("승리팀")) {
-                            Match from = MatchFromCrawler.from(matchFromCrawler, splittedMatchInfo[0], Integer.parseInt(splittedMatchInfo[1]),
+                            from = MatchFromCrawler.from(matchFromCrawler, splittedMatchInfo[0], Integer.parseInt(splittedMatchInfo[1]),
                                     splittedMatchInfo[3], Integer.parseInt(splittedMatchInfo[4]), splittedMatchInfo[0]);
-                            matches.add(from);
                         }
                         else{
-                            Match from = MatchFromCrawler.from(matchFromCrawler, splittedMatchInfo[0], Integer.parseInt(splittedMatchInfo[1]),
-                                    splittedMatchInfo[3], Integer.parseInt(splittedMatchInfo[4]), splittedMatchInfo[3]);
-                            matches.add(from);
+                            from = MatchFromCrawler.from(matchFromCrawler, splittedMatchInfo[0], Integer.parseInt(splittedMatchInfo[1]),
+                                    splittedMatchInfo[2], Integer.parseInt(splittedMatchInfo[3]), splittedMatchInfo[2]);
                         }
+                        matches.add(from);
                     }
                 } else {
                     matches.add(new Match(date));
@@ -153,6 +156,7 @@ public class SeleniumCrawler {
 
         } catch (Exception e) {
             driver.close();
+            e.printStackTrace();
             throw new WebDriverException();
 
         }

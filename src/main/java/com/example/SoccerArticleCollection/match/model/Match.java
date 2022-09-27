@@ -68,4 +68,21 @@ public class Match {
         this.hasMatch = false;
         this.text = "경기 일정이 존재하지 않습니다.";
     }
+
+    @Override
+    public String toString() {
+        return "Match{" +
+                "matchingId=" + matchingId +
+                ", date='" + date + '\'' +
+                ", hasMatch=" + hasMatch +
+                ", text='" + text + '\'' +
+                ", matchTeam1='" + matchTeam1 + '\'' +
+                ", matchTeam1Score=" + matchTeam1Score +
+                ", matchTeam2='" + matchTeam2 + '\'' +
+                ", matchTeam2Score=" + matchTeam2Score +
+                ", matchWinner='" + matchWinner + '\'' +
+                ", matchInfo='" + matchInfo + '\'' +
+                ", matchLink='" + matchLink + '\'' +
+                '}';
+    }
 }
