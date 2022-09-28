@@ -36,6 +36,7 @@ public class MatchFromCrawler {
                 .date(match.getDate())
                 .matchTeam1(matchTeam1)
                 .matchTeam2(matchTeam2)
+                .matchWinner("경기 전")
                 .matchInfo(match.getMatchInfo())
                 .matchLink(match.getMatchLink())
                 .build();

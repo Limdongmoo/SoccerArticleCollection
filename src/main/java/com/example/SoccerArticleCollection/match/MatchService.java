@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,19 +21,26 @@ public class MatchService {
      */
     public List<Match> saveMatchList() {
         SeleniumCrawler seleniumCrawler = new SeleniumCrawler();
-        System.out.println("111 = " + 111);
         String[] years = {"2022", "2023"};
-        String[] months = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"};
+        String[] months = {"11", "12", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10"};
 
         UrlMaker urlMaker = new UrlMaker();
-        urlMaker.setYear("year=2022");
-        urlMaker.setMonth("&month=09");
+        List<Match> matches = new ArrayList<>();
 
-        List<Match> matches = matchRepository.saveAll(seleniumCrawler.crawlSchedule(urlMaker));
+//        for (String s : years) {
+        urlMaker.setYear("year=" + "2022");
+//            for (String s1 : months) {
+        urlMaker.setMonth("&month=" + "11");
+        matches.addAll(matchRepository.saveAll(seleniumCrawler.crawlSchedule(urlMaker)));
+//            }
+//
+//        }
+
+
         return matches;
 
     }
-
-
-
 }
+
+
+

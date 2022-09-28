@@ -116,13 +116,10 @@ public class SeleniumCrawler {
             for (WebElement webElement : monthlyScheduleElements) {
                 boolean containDate = isContainDate(webElement);
                 List<WebElement> td = webElement.findElements(By.tagName("td"));
-                System.out.println("6 = " + 6);
                 if (containDate) {
                     date = webElement.findElement(By.tagName("th")).getText();
-                    System.out.println("7 = " + 7);
                 }
                 if (td.size() > 2) {
-                    System.out.println("8 = " + 8);
                     MatchFromCrawler matchFromCrawler = new MatchFromCrawler(date, td.get(0).getText(), td.get(1).getText(),
                             webElement.findElement(By.className("broadcast")).findElement(By.tagName("a")).getAttribute("href"));
                     String[] splittedMatchInfo = matchFromCrawler.getMatchName().split("\n");
