@@ -1,8 +1,8 @@
 package com.example.SoccerArticleCollection.player.model;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -10,18 +10,24 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Table(name = "TopPlayer")
-public class Player {
+public class TopPlayer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long playerId;
 
     @Column
     @Enumerated(EnumType.STRING)
     private RankType rankType;
 
     @Column
-    private int rank;
+    private String name;
+
+    @Column
+    private String team;
+
+    @Column
+    private int ranking;
 
     @Column
     private int goals;
@@ -42,16 +48,16 @@ public class Player {
     private int totalShots;
 
     @Column
-    private int goalConversion;
+    private String goalConversion;
 
     @Column
-    private int shotAccuracy;
+    private String shotAccuracy;
 
     @Column
     private int chancesCreated;
 
     @Column
-    private int chancesPer90;
+    private Double chancesPer90;
 
     @Column
     private int totalPasses;
@@ -63,13 +69,15 @@ public class Player {
     private int chancesIncomplete;
 
     @Column
-    private int passAccuracy;
+    private String passAccuracy;
 
-
-    public Player(int rank, int goals, int assists, int played, Double goalsPer90, int minsPerGoal, int totalShots,
-                  int goalConversion, int shotAccuracy) {
+    @Builder(builderClassName = "GoalRankingBuilder")
+    public TopPlayer(String name, String team, int ranking, int goals, int assists, int played, Double goalsPer90, int minsPerGoal, int totalShots,
+                     String goalConversion, String shotAccuracy) {
+        this.name = name;
+        this.team = team;
         this.rankType = RankType.SCORE;
-        this.rank = rank;
+        this.ranking = ranking;
         this.goals = goals;
         this.assists = assists;
         this.played = played;
@@ -80,10 +88,13 @@ public class Player {
         this.shotAccuracy = shotAccuracy;
     }
 
-    public Player(int rank, int goals, int assists, int played, int chancesCreated, int chancesPer90, int totalPasses,
-                  int chancesComplete, int chancesIncomplete, int passAccuracy) {
+    @Builder(builderClassName = "AssistsRankingBuilder")
+    public TopPlayer(String name, String team, int ranking, int goals, int assists, int played, int chancesCreated, Double chancesPer90, int totalPasses,
+                     int chancesComplete, int chancesIncomplete, String passAccuracy) {
         this.rankType = RankType.ASSISTS;
-        this.rank = rank;
+        this.name = name;
+        this.team = team;
+        this.ranking = ranking;
         this.goals = goals;
         this.assists = assists;
         this.played = played;
