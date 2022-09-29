@@ -159,6 +159,8 @@ public class SeleniumCrawler {
         }
     }
 
+
+
     private boolean isContainDate(WebElement webElement) {
         try {
             webElement.findElement(By.tagName("th"));
