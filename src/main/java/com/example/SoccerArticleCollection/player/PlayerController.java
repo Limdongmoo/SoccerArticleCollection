@@ -18,4 +18,12 @@ public class PlayerController {
     public List<TopPlayer> saveScoreRanking() {
         return playerService.saveGoalRanking();
     }
+
+
+
+    @GetMapping("/assists")
+    public List<TopPlayer> saveAssistsRanking() {
+        return playerService.saveAssistsRanking();
+    }
+
 }

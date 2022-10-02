@@ -71,7 +71,7 @@ public class TopPlayer {
     @Column
     private String passAccuracy;
 
-    @Builder(builderClassName = "GoalRankingBuilder")
+    @Builder(builderClassName = "GoalRankingBuilder" , builderMethodName = "GoalRankingBuilder")
     public TopPlayer(String name, String team, int ranking, int goals, int assists, int played, Double goalsPer90, int minsPerGoal, int totalShots,
                      String goalConversion, String shotAccuracy) {
         this.name = name;
@@ -88,7 +88,7 @@ public class TopPlayer {
         this.shotAccuracy = shotAccuracy;
     }
 
-    @Builder(builderClassName = "AssistsRankingBuilder")
+    @Builder(builderClassName = "AssistsRankingBuilder" , builderMethodName = "AssistsRankingBuilder")
     public TopPlayer(String name, String team, int ranking, int goals, int assists, int played, int chancesCreated, Double chancesPer90, int totalPasses,
                      int chancesComplete, int chancesIncomplete, String passAccuracy) {
         this.rankType = RankType.ASSISTS;

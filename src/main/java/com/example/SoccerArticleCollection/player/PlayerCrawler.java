@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +45,7 @@ public class PlayerCrawler {
                 String name = split[0];
                 String team = split[2];
 
-                TopPlayer build = TopPlayer.builder()
+                TopPlayer build = TopPlayer.GoalRankingBuilder()
                         .name(name)
                         .team(team)
                         .ranking(parseInt(td.get(0).getText()))
@@ -83,7 +84,7 @@ public class PlayerCrawler {
                 String name = split[0];
                 String team = split[2];
 
-                new TopPlayer()
+                TopPlayer build = TopPlayer.AssistsRankingBuilder()
                         .name(name)
                         .team(team)
                         .ranking(parseInt(td.get(0).getText()))
@@ -92,11 +93,11 @@ public class PlayerCrawler {
                         .played(parseInt(td.get(4).getText()))
                         .chancesCreated(parseInt(td.get(5).getText()))
                         .chancesPer90(Double.parseDouble(td.get(6).getText()))
-                        .totalPasses(parseInt(td.get(6).getText()))
-                        .chancesComplete(parseInt(td.get(7).getText()))
-                        .chancesIncomplete()
-                        .passAccuracy
-
+                        .totalPasses(parseInt(td.get(7).getText()))
+                        .chancesComplete(parseInt(td.get(8).getText()))
+                        .chancesIncomplete(parseInt(td.get(9).getText()))
+                        .passAccuracy(td.get(10).getText())
+                        .build();
 
 
 //                        .totalShots()
