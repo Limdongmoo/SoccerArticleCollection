@@ -13,4 +13,6 @@ public interface MatchRepository extends JpaRepository<Match, Long> {
 
     @Override
     <S extends Match> S save(S entity);
+
+    List<Match> findAllByHasMatchIsTrue();
 }

@@ -3,10 +3,13 @@ package com.example.SoccerArticleCollection.match.model;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SeleniumCrawler {
+public class MatchCrawler {
 //    public static void main(String[] args) {
 //        SeleniumCrawler seleniumCrawler = new SeleniumCrawler();
 //        UrlMaker urlMaker = new UrlMaker();
@@ -26,7 +29,7 @@ public class SeleniumCrawler {
     //크롤링 할 URL
     private String base_url;
 
-    public SeleniumCrawler() {
+    public MatchCrawler() {
         super();
 
         //System Property SetUp
@@ -108,7 +111,6 @@ public class SeleniumCrawler {
             //get page (= 브라우저에서 url을 주소창에 넣은 후 request 한 것과 같다)
             base_url = "https://sports.news.naver.com/wfootball/schedule/index?" + urlMaker.getYear() + urlMaker.getMonth() + urlMaker.getCategory();
             driver.get(base_url);
-            System.out.println(driver.getPageSource());
             WebElement monthlySchedule = driver.findElement(By.id("_monthlyScheduleList"));
             List<WebElement> monthlyScheduleElements = monthlySchedule.findElements(By.tagName("tr"));
             String date = "";
@@ -120,16 +122,18 @@ public class SeleniumCrawler {
                     date = webElement.findElement(By.tagName("th")).getText();
                 }
                 if (td.size() > 2) {
-                    MatchFromCrawler matchFromCrawler = new MatchFromCrawler(date, td.get(0).getText(), td.get(1).getText(),
+                    MatchFromCrawler matchFromCrawler = new MatchFromCrawler(td.get(0).getText(), td.get(1).getText(),
                             webElement.findElement(By.className("broadcast")).findElement(By.tagName("a")).getAttribute("href"));
                     String[] splittedMatchInfo = matchFromCrawler.getMatchName().split("\n");
 
                     if (splittedMatchInfo.length == 2) {
                         Match from = MatchFromCrawler.from(matchFromCrawler, splittedMatchInfo[0], splittedMatchInfo[1]);
+                        from.setDate(from.getMatchLink().substring(35, 43));
                         matches.add(from);
                     } else if (splittedMatchInfo.length == 4) {
                         Match from = MatchFromCrawler.from(matchFromCrawler, splittedMatchInfo[0], Integer.parseInt(splittedMatchInfo[1]),
                                 splittedMatchInfo[2], Integer.parseInt(splittedMatchInfo[3]), "무승부");
+                        from.setDate(from.getMatchLink().substring(35, 43));
                         matches.add(from);
                     } else if (splittedMatchInfo.length == 5) {
                         Match from;
@@ -141,9 +145,21 @@ public class SeleniumCrawler {
                             from = MatchFromCrawler.from(matchFromCrawler, splittedMatchInfo[0], Integer.parseInt(splittedMatchInfo[1]),
                                     splittedMatchInfo[2], Integer.parseInt(splittedMatchInfo[3]), splittedMatchInfo[2]);
                         }
+                        from.setDate(from.getMatchLink().substring(35, 43));
                         matches.add(from);
                     }
                 } else {
+                    String year = urlMaker.getYear().replaceAll("year=","");
+                    String month = urlMaker.getMonth().replace("&month=","");
+                    String[] split = date.split("\\.");
+                    String[] s = split[1].split(" ");
+                    String day = "";
+                    if (s[0].length() < 2) {
+                        day = "0" + s[0];
+                    } else {
+                        day = s[0];
+                    }
+                    date = year + month + day;
                     matches.add(new Match(date));
                 }
 
@@ -158,6 +174,27 @@ public class SeleniumCrawler {
 
         }
     }
+
+    /**
+     * Played Match Crawler
+     */
+    public void playedMatchCrawler() {
+
+        List<WebElement> bx_end = driver.findElements(By.cssSelector("div.bx.end"));
+
+            for (WebElement webElement : bx_end) {
+                System.out.println("webElement.getText() = " + webElement.getText());
+            }
+        System.out.println("bx_end.size() = " + bx_end.size());
+            driver.close();
+        String s ="MatchBox_score__33SVc";
+
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            driver.close();
+//        }
+    }
+
 
 
 
