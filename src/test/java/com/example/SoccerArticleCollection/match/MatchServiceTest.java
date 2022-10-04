@@ -1,5 +1,6 @@
 package com.example.SoccerArticleCollection.match;
 
+import com.example.SoccerArticleCollection.config.BaseException;
 import com.example.SoccerArticleCollection.match.model.Match;
 import com.example.SoccerArticleCollection.match.model.MatchCrawler;
 import com.example.SoccerArticleCollection.match.model.UrlMaker;
@@ -68,4 +69,10 @@ class MatchServiceTest {
         matchService.saveMatchList();
     }
 
+    @Test
+    @DisplayName("매치 결과 삽입(수정) 테스트")
+    void modifyMatchResult() throws BaseException {
+        Match match = matchService.modifyMatchResult(5568L, 2, 3);
+        System.out.println(match);
+    }
 }

@@ -9,7 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+
+import static com.example.SoccerArticleCollection.config.BaseResponseStatus.*;
 
 @Service
 @RequiredArgsConstructor
@@ -70,9 +73,34 @@ public class MatchService {
         }
     }
 
-    public List<Match>findAll() {
+    /**
+     * 매치 결과 입력 (수정) 메소드
+     * @param matchId : Match Primary Key
+     * @param team1Score : First Team's Score (ex.1)
+     * @param team2Score : Second Team's Score (ex.2)
+     */
+    public Match modifyMatchResult(Long matchId,int team1Score,int team2Score) throws BaseException{
+        Optional<Match> byMatchingId = matchRepository.findByMatchingId(matchId);
+        if (byMatchingId.isEmpty()) {
+            throw new BaseException(FAILED_TO_GET_MATCH_SERVER_ERROR);
+        }
+        try {
+            Match match = byMatchingId.get();
+            match.setMatchTeam1Score(team1Score);
+            match.setMatchTeam2Score(team2Score);
+            String winner;
+            if (team1Score == team2Score) {
+                winner = "무승부";
+            } else {
+                winner = (team1Score > team2Score) ? match.getMatchTeam1() : match.getMatchTeam2();
+            }
+            match.setMatchWinner(winner);
 
-        return matchRepository.findAll();
+            return matchRepository.save(match);
+        } catch (Exception e) {
+            throw new BaseException(FAILED_TO_MODIFY_MATCH_RESULT_IN_SERVER);
+        }
+
     }
 }
 

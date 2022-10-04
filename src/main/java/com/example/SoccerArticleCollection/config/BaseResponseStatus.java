@@ -11,7 +11,9 @@ public enum BaseResponseStatus {
     /**
      * match 오류
      */
-    FAILED_TO_GET_MATCHES_SERVER_ERROR(false,2001,"매치 조회 서버 오류");
+    FAILED_TO_GET_MATCHES_SERVER_ERROR(false,2001,"매치 조회 서버 오류"),
+    FAILED_TO_MODIFY_MATCH_RESULT_IN_SERVER(false, 2002, "매치 결과 수정 서버 오류"),
+    FAILED_TO_GET_MATCH_SERVER_ERROR(false, 2003, "매칭Id 로 매치 조회 서버 오류");
 
     private final boolean isSuccess;
     private final int code;
