@@ -3,6 +3,7 @@ package com.example.SoccerArticleCollection.match.model;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
@@ -128,12 +129,13 @@ public class MatchCrawler {
 
                     if (splittedMatchInfo.length == 2) {
                         Match from = MatchFromCrawler.from(matchFromCrawler, splittedMatchInfo[0], splittedMatchInfo[1]);
-                        from.setDate(from.getMatchLink().substring(35, 43));
+                        from.setDate(Date.valueOf(convertDateRegex(from.getMatchLink().substring(35, 43))));
+
                         matches.add(from);
                     } else if (splittedMatchInfo.length == 4) {
                         Match from = MatchFromCrawler.from(matchFromCrawler, splittedMatchInfo[0], Integer.parseInt(splittedMatchInfo[1]),
                                 splittedMatchInfo[2], Integer.parseInt(splittedMatchInfo[3]), "무승부");
-                        from.setDate(from.getMatchLink().substring(35, 43));
+                        from.setDate(Date.valueOf(convertDateRegex(from.getMatchLink().substring(35, 43))));
                         matches.add(from);
                     } else if (splittedMatchInfo.length == 5) {
                         Match from;
@@ -145,7 +147,7 @@ public class MatchCrawler {
                             from = MatchFromCrawler.from(matchFromCrawler, splittedMatchInfo[0], Integer.parseInt(splittedMatchInfo[1]),
                                     splittedMatchInfo[2], Integer.parseInt(splittedMatchInfo[3]), splittedMatchInfo[2]);
                         }
-                        from.setDate(from.getMatchLink().substring(35, 43));
+                        from.setDate(Date.valueOf(convertDateRegex(from.getMatchLink().substring(35, 43))));
                         matches.add(from);
                     }
                 } else {
@@ -159,8 +161,8 @@ public class MatchCrawler {
                     } else {
                         day = s[0];
                     }
-                    date = year + month + day;
-                    matches.add(new Match(date));
+                    date = year +"-"+ month +"-"+ day;
+                    matches.add(new Match(Date.valueOf(date)));
                 }
 
             }
@@ -205,6 +207,12 @@ public class MatchCrawler {
             return false;
         }
         return true;
+    }
+
+    private String convertDateRegex(String date) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(date,0, 4).append("-").append(date, 4, 6).append("-").append(date, 6, 8);
+        return sb.toString();
     }
 
 }
