@@ -51,18 +51,21 @@ class MatchServiceTest {
     @Test
     @DisplayName("일자별 결과 반영 확인")
     void changeMatchResult() {
-        String localDate = LocalDate.now().toString();
-        List<Match> allByDateAndHasMatchIsTrue = matchRepository.findAllByDateAndHasMatchIsTrue(localDate);
-        for (Match match : allByDateAndHasMatchIsTrue) {
+        List<Match> allByDateAndHasMatchIsTrue = matchRepository.findAllByDate(2022, 10, 01);
 
+        for (Match match : allByDateAndHasMatchIsTrue) {
+            match.setMatchTeam1Score(1);
+            match.setMatchTeam2Score(2);
         }
+        System.out.println("allByDateAndHasMatchIsTrue.size() = " + allByDateAndHasMatchIsTrue.size());
+        matchRepository.saveAll(allByDateAndHasMatchIsTrue);
 
     }
 
     @Test
     @DisplayName("자동 크롤링 테스트")
-    @Commit
     void autoCrawlTest() {
         matchService.saveMatchList();
     }
+
 }

@@ -1,0 +1,59 @@
+package com.example.SoccerArticleCollection.match.model;
+
+import com.example.SoccerArticleCollection.match.MatchRepository;
+import com.example.SoccerArticleCollection.match.MatchService;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@SpringBootTest
+class MatchModelTest {
+
+    @Autowired
+    private MatchRepository matchRepository;
+
+    @Test
+    @DisplayName("Match To GetMatchRes Test")
+    void getMatchRes() {
+        Optional<Match> byId = matchRepository.findById(5143L);
+        Match match = byId.get();
+        List<GetMatchRes> getMatchResList = new ArrayList<>();
+        getMatchResList.add(GetHasMatchBeforeRes.from(match));
+        System.out.println("getMatchResList.get(0) = " + getMatchResList.get(0));
+
+    }
+
+    @Test
+    @DisplayName("Matches Parsing test")
+    void getMatchesRes() {
+        //given
+        List<Match> matches = matchRepository.findAllByDate(2022,10);
+
+        System.out.println("matches.size() = " + matches.size());
+        //when
+        List<GetMatchRes> collect = matches.stream()
+                .map(match -> {
+                    if (!match.isHasMatch()) {
+                        return GetNotMatchRes.from(match);
+                    } else {
+                        if (match.getMatchWinner().equals("경기 전")) {
+                            return GetHasMatchBeforeRes.from(match);
+                        } else {
+                            return GetHasMatchAfterRes.from(match);
+                        }
+                    }
+                })
+                .collect(Collectors.toList());
+
+        collect.forEach(
+                System.out::println
+        );
+    }
+}
