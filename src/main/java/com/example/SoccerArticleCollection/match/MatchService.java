@@ -79,14 +79,16 @@ public class MatchService {
      * @param team1Score : First Team's Score (ex.1)
      * @param team2Score : Second Team's Score (ex.2)
      */
-    public Match modifyMatchResult(Long matchId,int team1Score,int team2Score) throws BaseException{
-        Optional<Match> byMatchingId = matchRepository.findByMatchingId(matchId);
+    public Match modifyMatchResult(PatchMatchResultReq patchMatchResultReq) throws BaseException{
+        Optional<Match> byMatchingId = matchRepository.findByMatchingId(patchMatchResultReq.getMatchingId());
         if (byMatchingId.isEmpty()) {
             throw new BaseException(FAILED_TO_GET_MATCH_SERVER_ERROR);
         }
         try {
             Match match = byMatchingId.get();
+            int team1Score = patchMatchResultReq.getTeam1Score();
             match.setMatchTeam1Score(team1Score);
+            int team2Score = patchMatchResultReq.getTeam2Score();
             match.setMatchTeam2Score(team2Score);
             String winner;
             if (team1Score == team2Score) {

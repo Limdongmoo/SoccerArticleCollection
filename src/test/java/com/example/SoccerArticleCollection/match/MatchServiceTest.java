@@ -3,6 +3,7 @@ package com.example.SoccerArticleCollection.match;
 import com.example.SoccerArticleCollection.config.BaseException;
 import com.example.SoccerArticleCollection.match.model.Match;
 import com.example.SoccerArticleCollection.match.model.MatchCrawler;
+import com.example.SoccerArticleCollection.match.model.PatchMatchResultReq;
 import com.example.SoccerArticleCollection.match.model.UrlMaker;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -72,7 +73,8 @@ class MatchServiceTest {
     @Test
     @DisplayName("매치 결과 삽입(수정) 테스트")
     void modifyMatchResult() throws BaseException {
-        Match match = matchService.modifyMatchResult(5568L, 2, 3);
+        PatchMatchResultReq patchMatchResultReq = new PatchMatchResultReq(5568L, 2, 3);
+        Match match = matchService.modifyMatchResult(patchMatchResultReq);
         System.out.println(match);
     }
 }
