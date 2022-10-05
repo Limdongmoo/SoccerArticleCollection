@@ -1,8 +1,9 @@
-package com.example.SoccerArticleCollection.match;
+package com.example.SoccerArticleCollection.service;
 
 import com.example.SoccerArticleCollection.config.BaseException;
 import com.example.SoccerArticleCollection.config.BaseResponseStatus;
-import com.example.SoccerArticleCollection.match.model.*;
+import com.example.SoccerArticleCollection.domain.match.*;
+import com.example.SoccerArticleCollection.repository.MatchRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

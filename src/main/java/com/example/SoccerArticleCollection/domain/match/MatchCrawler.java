@@ -1,12 +1,9 @@
-package com.example.SoccerArticleCollection.match.model;
+package com.example.SoccerArticleCollection.domain.match;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.sql.Date;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package com.example.SoccerArticleCollection.player;
+package com.example.SoccerArticleCollection.repository;
 
-import com.example.SoccerArticleCollection.player.model.RankType;
-import com.example.SoccerArticleCollection.player.model.TopPlayer;
+import com.example.SoccerArticleCollection.domain.player.RankType;
+import com.example.SoccerArticleCollection.domain.player.TopPlayer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

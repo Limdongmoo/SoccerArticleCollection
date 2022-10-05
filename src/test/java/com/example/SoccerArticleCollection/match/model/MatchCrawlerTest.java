@@ -1,9 +1,9 @@
 package com.example.SoccerArticleCollection.match.model;
 
+import com.example.SoccerArticleCollection.domain.match.MatchCrawler;
+import com.example.SoccerArticleCollection.domain.match.UrlMaker;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.annotation.Commit;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class MatchCrawlerTest {
 

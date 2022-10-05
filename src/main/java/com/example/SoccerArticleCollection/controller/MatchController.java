@@ -1,6 +1,7 @@
-package com.example.SoccerArticleCollection.match;
+package com.example.SoccerArticleCollection.controller;
 
-import com.example.SoccerArticleCollection.match.model.Match;
+import com.example.SoccerArticleCollection.domain.match.Match;
+import com.example.SoccerArticleCollection.service.MatchService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

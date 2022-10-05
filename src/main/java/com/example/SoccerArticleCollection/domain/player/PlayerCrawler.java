@@ -1,12 +1,10 @@
-package com.example.SoccerArticleCollection.player;
+package com.example.SoccerArticleCollection.domain.player;
 
-import com.example.SoccerArticleCollection.player.model.TopPlayer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -116,10 +114,4 @@ public class PlayerCrawler {
         }
 
     }
-
-    public static void main(String[] args) {
-        PlayerCrawler playerCrawler = new PlayerCrawler();
-        playerCrawler.assistsRankCrawler();
-    }
-
 }

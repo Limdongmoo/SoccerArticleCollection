@@ -1,12 +1,10 @@
-package com.example.SoccerArticleCollection.match;
+package com.example.SoccerArticleCollection.repository;
 
-import com.example.SoccerArticleCollection.match.model.Match;
+import com.example.SoccerArticleCollection.domain.match.Match;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 

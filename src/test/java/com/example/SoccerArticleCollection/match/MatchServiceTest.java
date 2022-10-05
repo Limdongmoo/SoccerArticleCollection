@@ -1,23 +1,20 @@
 package com.example.SoccerArticleCollection.match;
 
 import com.example.SoccerArticleCollection.config.BaseException;
-import com.example.SoccerArticleCollection.match.model.Match;
-import com.example.SoccerArticleCollection.match.model.MatchCrawler;
-import com.example.SoccerArticleCollection.match.model.PatchMatchResultReq;
-import com.example.SoccerArticleCollection.match.model.UrlMaker;
+import com.example.SoccerArticleCollection.domain.match.Match;
+import com.example.SoccerArticleCollection.domain.match.MatchCrawler;
+import com.example.SoccerArticleCollection.domain.match.PatchMatchResultReq;
+import com.example.SoccerArticleCollection.domain.match.UrlMaker;
+import com.example.SoccerArticleCollection.repository.MatchRepository;
+import com.example.SoccerArticleCollection.service.MatchService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Commit;
 
 import java.sql.Date;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class MatchServiceTest {

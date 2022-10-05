@@ -1,4 +1,4 @@
-package com.example.SoccerArticleCollection.match.model;
+package com.example.SoccerArticleCollection.domain.match;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

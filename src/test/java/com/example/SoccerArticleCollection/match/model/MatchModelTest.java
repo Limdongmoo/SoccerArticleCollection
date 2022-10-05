@@ -1,13 +1,12 @@
 package com.example.SoccerArticleCollection.match.model;
 
-import com.example.SoccerArticleCollection.match.MatchRepository;
-import com.example.SoccerArticleCollection.match.MatchService;
+import com.example.SoccerArticleCollection.domain.match.*;
+import com.example.SoccerArticleCollection.repository.MatchRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

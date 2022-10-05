@@ -1,7 +1,9 @@
-package com.example.SoccerArticleCollection.player;
+package com.example.SoccerArticleCollection.service;
 
-import com.example.SoccerArticleCollection.player.model.RankType;
-import com.example.SoccerArticleCollection.player.model.TopPlayer;
+import com.example.SoccerArticleCollection.domain.player.PlayerCrawler;
+import com.example.SoccerArticleCollection.domain.player.RankType;
+import com.example.SoccerArticleCollection.domain.player.TopPlayer;
+import com.example.SoccerArticleCollection.repository.PlayerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
