@@ -14,5 +14,7 @@ public interface PlayerRepository extends JpaRepository<TopPlayer, Long> {
 
     void deleteAllByRankType(RankType rankType);
 
+    List<TopPlayer> findAllByRankType(RankType rankType);
+
 
 }

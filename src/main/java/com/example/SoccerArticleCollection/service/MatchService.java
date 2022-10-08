@@ -76,9 +76,6 @@ public class MatchService {
 
     /**
      * 매치 결과 입력 (수정) 메소드
-     * @param matchId : Match Primary Key
-     * @param team1Score : First Team's Score (ex.1)
-     * @param team2Score : Second Team's Score (ex.2)
      */
     public Match modifyMatchResult(PatchMatchResultReq patchMatchResultReq) throws BaseException{
         Optional<Match> byMatchingId = matchRepository.findByMatchingId(patchMatchResultReq.getMatchingId());

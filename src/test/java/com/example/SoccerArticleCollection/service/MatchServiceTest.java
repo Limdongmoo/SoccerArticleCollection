@@ -1,4 +1,4 @@
-package com.example.SoccerArticleCollection.match;
+package com.example.SoccerArticleCollection.service;
 
 import com.example.SoccerArticleCollection.config.BaseException;
 import com.example.SoccerArticleCollection.domain.match.Match;

@@ -1,14 +1,13 @@
 package com.example.SoccerArticleCollection.service;
 
-import com.example.SoccerArticleCollection.domain.player.PlayerCrawler;
-import com.example.SoccerArticleCollection.domain.player.RankType;
-import com.example.SoccerArticleCollection.domain.player.TopPlayer;
+import com.example.SoccerArticleCollection.domain.player.*;
 import com.example.SoccerArticleCollection.repository.PlayerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -19,7 +18,7 @@ public class PlayerService {
 
 
 
-    public List<TopPlayer> saveGoalRanking() {
+    public List<TopPlayer> saveScoreRanking() {
 
         PlayerCrawler playerCrawler = new PlayerCrawler();
 
@@ -37,6 +36,23 @@ public class PlayerService {
         playerRepository.deleteAllByRankType(RankType.ASSISTS);
 
         return playerRepository.saveAll(topPlayers);
+    }
+
+    public List<GetScoreRankingRes> getScoreRanking() {
+
+        List<TopPlayer> allByRankType = playerRepository.findAllByRankType(RankType.SCORE);
+        return allByRankType.stream()
+                .map(GetScoreRankingRes::from)
+                .collect(Collectors.toList());
+
+    }
+
+    public List<GetAssistsRankingRes> getAssistsRanking() {
+
+        List<TopPlayer> allByRankType = playerRepository.findAllByRankType(RankType.ASSISTS);
+        return allByRankType.stream()
+                .map(GetAssistsRankingRes::from)
+                .collect(Collectors.toList());
     }
 
 }

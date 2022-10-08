@@ -105,4 +105,29 @@ public class TopPlayer {
         this.chancesIncomplete = chancesIncomplete;
         this.passAccuracy = passAccuracy;
     }
+
+    @Override
+    public String toString() {
+        return "TopPlayer{" +
+                "playerId=" + playerId +
+                ", rankType=" + rankType +
+                ", name='" + name + '\'' +
+                ", team='" + team + '\'' +
+                ", ranking=" + ranking +
+                ", goals=" + goals +
+                ", assists=" + assists +
+                ", played=" + played +
+                ", goalsPer90=" + goalsPer90 +
+                ", minsPerGoal=" + minsPerGoal +
+                ", totalShots=" + totalShots +
+                ", goalConversion='" + goalConversion + '\'' +
+                ", shotAccuracy='" + shotAccuracy + '\'' +
+                ", chancesCreated=" + chancesCreated +
+                ", chancesPer90=" + chancesPer90 +
+                ", totalPasses=" + totalPasses +
+                ", chancesComplete=" + chancesComplete +
+                ", chancesIncomplete=" + chancesIncomplete +
+                ", passAccuracy='" + passAccuracy + '\'' +
+                '}';
+    }
 }

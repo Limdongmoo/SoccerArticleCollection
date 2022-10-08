@@ -17,7 +17,7 @@ public class PlayerController {
 
     @GetMapping("")
     public List<TopPlayer> saveScoreRanking() {
-        return playerService.saveGoalRanking();
+        return playerService.saveScoreRanking();
     }
 
 
