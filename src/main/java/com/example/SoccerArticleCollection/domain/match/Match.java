@@ -1,11 +1,14 @@
 package com.example.SoccerArticleCollection.domain.match;
 
+import com.example.SoccerArticleCollection.domain.article.Article;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -48,6 +51,9 @@ public class Match {
 
     @Column(name = "match_link")
     private String matchLink;
+
+    @OneToMany(mappedBy = "match",fetch = FetchType.LAZY,cascade = CascadeType.ALL,orphanRemoval = true)
+    private Set<Article> articles = new HashSet<>();
 
 
     @Builder

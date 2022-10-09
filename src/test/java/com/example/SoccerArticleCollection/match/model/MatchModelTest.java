@@ -1,11 +1,16 @@
 package com.example.SoccerArticleCollection.match.model;
 
+import com.example.SoccerArticleCollection.domain.article.Article;
 import com.example.SoccerArticleCollection.domain.match.*;
+import com.example.SoccerArticleCollection.repository.ArticleRepository;
 import com.example.SoccerArticleCollection.repository.MatchRepository;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +18,14 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @SpringBootTest
+@Transactional
 class MatchModelTest {
 
     @Autowired
     private MatchRepository matchRepository;
+
+    @Autowired
+    private ArticleRepository articleRepository;
 
     @Test
     @DisplayName("Match To GetMatchRes Test")
@@ -55,4 +64,23 @@ class MatchModelTest {
                 System.out::println
         );
     }
+
+    @Test
+    @DisplayName("Match 와 Article 매핑 관계 테스트")
+    void matchAndArticleMappingTest() {
+        Match match = new Match();
+        Match save = matchRepository.save(match);
+
+        Article article = new Article();
+        article.setMatch(save);
+        articleRepository.save(article);
+
+    }
+
+    @Test
+    @DisplayName("Match 와 Article 매핑 관계 테스트")
+    void matchMappingTest(){
+        Assertions.assertThat(matchRepository.findById(5574L).get().getArticles().size()).isEqualTo(1);
+    }
+
 }
