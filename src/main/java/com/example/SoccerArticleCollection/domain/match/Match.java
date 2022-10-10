@@ -52,10 +52,6 @@ public class Match {
     @Column(name = "match_link")
     private String matchLink;
 
-    @OneToMany(mappedBy = "match",fetch = FetchType.LAZY,cascade = CascadeType.ALL,orphanRemoval = true)
-    private Set<Article> articles = new HashSet<>();
-
-
     @Builder
     public Match(Date date, String matchTeam1, int matchTeam1Score, String matchTeam2, int matchTeam2Score,
                  String matchWinner, String matchInfo, String matchLink) {

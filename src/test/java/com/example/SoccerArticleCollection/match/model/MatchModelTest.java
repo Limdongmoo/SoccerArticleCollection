@@ -72,15 +72,7 @@ class MatchModelTest {
         Match save = matchRepository.save(match);
 
         Article article = new Article();
-        article.setMatch(save);
         articleRepository.save(article);
 
     }
-
-    @Test
-    @DisplayName("Match 와 Article 매핑 관계 테스트")
-    void matchMappingTest(){
-        Assertions.assertThat(matchRepository.findById(5574L).get().getArticles().size()).isEqualTo(1);
-    }
-
 }

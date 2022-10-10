@@ -22,16 +22,19 @@ public class Article {
     private String title;
 
     @Column
-    private String team1;
-
-    @Column
-    private String team2;
-
-    @Column
     private String articleLink;
 
-    @JoinColumn(name = "matching_id")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Match match;
+    @Column
+    @Enumerated(EnumType.STRING)
+    private ArticleType articleType;
 
+    @Override
+    public String toString() {
+        return "Article{" +
+                "articleId=" + articleId +
+                ", title='" + title + '\'' +
+                ", articleLink='" + articleLink + '\'' +
+                ", articleType=" + articleType +
+                '}';
+    }
 }
