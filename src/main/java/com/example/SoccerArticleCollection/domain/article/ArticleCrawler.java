@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ArticleCrawler {
@@ -29,7 +30,7 @@ public class ArticleCrawler {
 
     }
 
-    public void crawlBBCArticleByMatch(String team1, String team2) {
+    public List<Article> crawlBBCArticleByMatch() {
         try {
             //get page (= 브라우저에서 url을 주소창에 넣은 후 request 한 것과 같다)
             base_url = "https://www.bbc.com/sport/football/premier-league";
@@ -38,9 +39,17 @@ public class ArticleCrawler {
             WebElement elements = driver.findElement(By.cssSelector("div.sp-c-cluster"));
 
             List<WebElement> div = elements.findElements(By.cssSelector("div.gel-layout__item"));
-            System.out.println("div.size() = " + div.size());
+            List<Article> articles = new ArrayList<>();
+            for (WebElement webElement : div) {
+                String attribute = webElement.findElement(By.tagName("a")).getAttribute("href");
+                String a = webElement.findElement(By.tagName("a")).getText();
+                articles.add(new Article(a,attribute, ArticleType.BBC));
+
+            }
 
             driver.close();
+
+            return articles;
         } catch (Exception e) {
             e.printStackTrace();
             driver.close();

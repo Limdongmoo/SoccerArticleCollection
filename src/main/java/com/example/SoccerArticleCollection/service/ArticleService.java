@@ -21,16 +21,11 @@ public class ArticleService {
     private final ArticleRepository articleRepository;
     private final MatchRepository matchRepository;
 
-    public void articleCrawling() {
-        Optional<Match> byId = matchRepository.findById(4977L);
-        Match match = byId.get();
-        String matchTeam1 = match.getMatchTeam1();
-        String matchTeam2 = match.getMatchTeam2();
+    public List<Article> bbcArticleCrawling() {
 
         ArticleCrawler articleCrawler = new ArticleCrawler();
-        articleCrawler.crawlBBCArticleByMatch(matchTeam1, matchTeam2);
-
-
+        List<Article> articles = articleCrawler.crawlBBCArticleByMatch();
+        return articleRepository.saveAll(articles);
     }
 
 
