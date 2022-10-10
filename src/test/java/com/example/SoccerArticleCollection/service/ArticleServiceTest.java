@@ -19,7 +19,6 @@ class ArticleServiceTest {
 
     @Test
     @DisplayName("BBS 기사 크롤링 테스트")
-    @Commit
     void articleCrawling() {
         List<Article> articles = articleService.bbcArticleCrawling();
         articles.forEach(System.out::println);
