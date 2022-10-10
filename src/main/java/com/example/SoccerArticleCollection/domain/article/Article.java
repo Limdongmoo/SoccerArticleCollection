@@ -1,20 +1,21 @@
 package com.example.SoccerArticleCollection.domain.article;
 
-import com.example.SoccerArticleCollection.domain.match.Match;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Getter
 @Setter
 @Table
 @NoArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
 public class Article {
 
     @Id
@@ -31,6 +32,10 @@ public class Article {
     @Enumerated(EnumType.STRING)
     private ArticleType articleType;
 
+    @Column
+    @CreatedDate
+    private LocalDate createdDate;
+
     @Override
     public String toString() {
         return "Article{" +
@@ -38,6 +43,7 @@ public class Article {
                 ", title='" + title + '\'' +
                 ", articleLink='" + articleLink + '\'' +
                 ", articleType=" + articleType +
+                ", date=" + createdDate +
                 '}';
     }
 
@@ -49,16 +55,4 @@ public class Article {
     }
 
 
-
-    public static Article fromBBC(WebElement element) {
-        WebElement anchor = element.findElement(By.tagName("a"));
-        String articleTitle = anchor.getText();
-        String articleLink = anchor.getAttribute("href");
-
-        return Article.builder()
-                .articleLink(articleLink)
-                .title(articleTitle)
-                .articleType(ArticleType.BBC)
-                .build();
-    }
 }

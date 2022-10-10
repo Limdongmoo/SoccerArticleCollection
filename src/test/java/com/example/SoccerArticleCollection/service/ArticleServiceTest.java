@@ -18,7 +18,8 @@ class ArticleServiceTest {
     private ArticleService articleService;
 
     @Test
-    @DisplayName("BBS 기사 크롤링 테스트")
+    @DisplayName("BBC 기사 크롤링 테스트")
+    @Commit
     void articleCrawling() {
         List<Article> articles = articleService.bbcArticleCrawling();
         articles.forEach(System.out::println);
