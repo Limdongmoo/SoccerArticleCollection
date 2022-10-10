@@ -19,9 +19,16 @@ class ArticleServiceTest {
 
     @Test
     @DisplayName("BBC 기사 크롤링 테스트")
-    @Commit
     void articleCrawling() {
         List<Article> articles = articleService.bbcArticleCrawling();
         articles.forEach(System.out::println);
+    }
+
+    @Test
+    @DisplayName("NAVER 기사 크롤링 테스트")
+    void articleCrawlingNaver() {
+        List<Article> articles = articleService.naverArticleCrawling();
+        articles.forEach(System.out::println);
+
     }
 }

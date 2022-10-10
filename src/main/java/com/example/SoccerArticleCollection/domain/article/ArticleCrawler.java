@@ -55,5 +55,33 @@ public class ArticleCrawler {
             driver.close();
             throw new WebDriverException();
         }
+
+
+    }
+
+    public List<Article> crawlNAVERArticleByMatch() {
+        try {
+            //get page (= 브라우저에서 url을 주소창에 넣은 후 request 한 것과 같다)
+            base_url = "https://m.sports.naver.com/wfootball/news/index?type=league&isPhoto=N&league=epl&date=20221010";
+            driver.get(base_url);
+            System.out.println(driver.getPageSource());
+            List<WebElement> elements = driver.findElements(By.cssSelector("li.NewsList_news_item__1nchx"));
+            List<Article> articles = new ArrayList<>();
+
+            for (WebElement element : elements) {
+                WebElement a = element.findElement(By.tagName("a"));
+                String articleLink = a.getAttribute("href");
+                String title = a.findElement(By.cssSelector("em.NewsList_title__2_pof")).getText();
+                articles.add(new Article(title, articleLink,ArticleType.NAVER));
+            }
+
+            driver.close();
+            return articles;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            driver.close();
+            throw new WebDriverException();
+        }
     }
 }

@@ -28,5 +28,12 @@ public class ArticleService {
         return articleRepository.saveAll(articles);
     }
 
+    public List<Article> naverArticleCrawling() {
+        ArticleCrawler articleCrawler = new ArticleCrawler();
+        List<Article> articles = articleCrawler.crawlNAVERArticleByMatch();
+        return articleRepository.saveAll(articles);
+
+    }
+
 
 }
