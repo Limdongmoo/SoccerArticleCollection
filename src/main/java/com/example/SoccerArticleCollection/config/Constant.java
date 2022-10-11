@@ -9,13 +9,16 @@ public class Constant {
     // BBC 프리미어 리그 링크
     public static final String BBC_PREMIER_LEAGUE_URL = "https://www.bbc.com/sport/football/premier-league";
 
-    // BBC 프리미어 리그 링크
+    // BBC 프리미어 리그 팀 링크
     public static final String BBC_PREMIER_LEAGUE_TEAM_URL = "https://www.bbc.com/sport/football/teams/";
 
     public static final String SKY_SPORTS_PREMIER_LEAGUE_URL = "https://www.skysports.com/premier-league";
 
     // Naver 오픈톡 링크
     public static final String NAVER_OPEN_TALK_URL = "https://m.sports.naver.com/community/opentalk/index";
+
+    // Naver 프리미어 리그 링크 : URL + date 넣어서 조회해야함
+    public static final String NAVER_PREMIER_LEAGUE_URL = "https://m.sports.naver.com/wfootball/news/index?type=league&isPhoto=N&league=epl&date=";
 
 
     // 팀별 영어 이름

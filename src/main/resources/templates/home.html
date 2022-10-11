@@ -1,18 +1,380 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="ko">
+<head></head>
 <body>
-<div>
-    <div>
-        <h1>EPL </h1>
-        <p>
-            <a href="/ranking">EPL 팀 순위 조회</a>
-            <a href="/schedule">EPL 경기 일정</a>
-        </p>
+<div style="width: 1440px; height: 1024px; background-color: white; position: relative;">
+    <div style="width: 250px; height: 200px; left: 50px; top: 40px; position: absolute;">
+        <div style="width: 250px; height: 200px; padding-left: 25px; padding-right: 25px; padding-top: 75px; padding-bottom: 75px; background-color: rgba(217, 217, 217, 1); border-radius: 8px; display: flex; flex-direction: row; align-items: center; justify-content: center;">
+            <p style="width: 200px; height: 50px; font-size: 32px; line-height: 100%; text-align: center; color: black;">EPL BOARD<br/></p>
+        </div>
     </div>
+    <p style="width: 682px; height: 49px; left: 498px; top: 459px; position: absolute; line-height: 100%; text-align: center; color: black;">팀별 일정 및 기사 보기 by BBC</p>
+    <div style="width: 250px; height: 49px; left: 50px; top: 294px; position: absolute;">
+        <div style="width: 250px; height: 49px; padding-top: 12px; padding-bottom: 13px; padding-left: 11px; padding-right: 18px; background-color: rgba(217, 217, 217, 1); display: flex; flex-direction: row; align-items: center; justify-content: center;">
+            <p style="width: 221px; font-size: 20px; line-height: 100%; text-align: center; color: black;">네이버 승부예측 하러가기</p>
+        </div>
+    </div>
+    <div style="width: 250px; height: 49px; left: 50px; top: 366px; position: absolute;">
+        <div style="width: 250px; height: 49px; padding-top: 12px; padding-bottom: 13px; padding-left: 11px; padding-right: 18px; background-color: rgba(217, 217, 217, 1); border-radius: 8px; display: flex; flex-direction: row; align-items: center; justify-content: center;">
+            <p style="width: 221px; font-size: 20px; line-height: 100%; text-align: center; color: black;">네이버 오픈Talk 보러가기</p>
+        </div>
+    </div>
+    <div style="width: 250px; height: 237px; left: 50px; top: 435px; position: absolute;">
+        <div style="width: 250px; height: 237px; background-color: rgba(217, 217, 217, 1); position: relative;">
+            <p style="width: 40px; height: 12px; left: 208px; top: 41px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; text-align: center; color: black;">득점<br/><br/></p>
+            <p style="width: 209px; height: 12px; left: 17px; top: 18px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; text-align: center; color: black;">득점 랭킹<br/></p>
+            <p style="width: 40px; height: 12px; left: 5px; top: 41px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; text-align: center; color: black;">순위<br/><br/></p>
+            <p style="width: 150px; height: 12px; left: 50px; top: 41px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; text-align: center; color: black;">선수 이름<br/></p>
+            <p style="width: 25px; height: 12px; left: 216px; top: 64px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">14<br/><br/></p>
+            <p style="width: 25px; height: 12px; left: 15px; top: 64px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">1</p>
+            <p style="width: 150px; height: 12px; left: 50px; top: 65px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Erling Haaland<br/></p>
+            <p style="width: 25px; height: 12px; left: 216px; top: 105px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">6<br/><br/></p>
+            <p style="width: 25px; height: 12px; left: 15px; top: 105px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">3<br/><br/></p>
+            <p style="width: 150px; height: 12px; left: 50px; top: 105px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Aleksandar Mitrovic<br/></p>
+            <p style="width: 25px; height: 12px; left: 216px; top: 85px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">7<br/><br/></p>
+            <p style="width: 25px; height: 12px; left: 15px; top: 85px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">2<br/><br/></p>
+            <p style="width: 150px; height: 12px; left: 50px; top: 85px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Harry Kane<br/></p>
+            <p style="width: 25px; height: 12px; left: 216px; top: 145px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">5<br/><br/></p>
+            <p style="width: 25px; height: 12px; left: 15px; top: 145px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">4<br/><br/></p>
+            <p style="width: 150px; height: 12px; left: 50px; top: 145px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Gabriel Jesus<br/></p>
+            <p style="width: 25px; height: 12px; left: 216px; top: 125px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">5<br/><br/></p>
+            <p style="width: 25px; height: 12px; left: 15px; top: 125px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">4<br/><br/></p>
+            <p style="width: 150px; height: 12px; left: 50px; top: 125px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Roberto Firmino<br/></p>
+            <p style="width: 25px; height: 12px; left: 216px; top: 185px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">5<br/><br/></p>
+            <p style="width: 25px; height: 12px; left: 15px; top: 185px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">4<br/><br/></p>
+            <p style="width: 150px; height: 12px; left: 50px; top: 185px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">James Maddison<br/></p>
+            <p style="width: 25px; height: 12px; left: 216px; top: 165px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">5<br/><br/></p>
+            <p style="width: 25px; height: 12px; left: 15px; top: 165px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">4<br/><br/></p>
+            <p style="width: 150px; height: 12px; left: 50px; top: 165px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Phil Foden<br/></p>
+            <div style="width: 140px; height: 33px; left: 55px; top: 204px; position: absolute; background-color: rgba(196.56, 93.37, 93.37, 1); border-radius: 8px;"/>
+            <p style="width: 115px; height: 21px; left: 68px; top: 211px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: white;">득점 순위 더보기</p>
+        </div>
+    </div>
+    <div style="width: 250px; height: 237px; left: 50px; top: 726px; position: absolute;">
+        <div style="width: 250px; height: 237px; background-color: rgba(217, 217, 217, 1); position: relative;">
+            <p style="width: 40px; height: 12px; left: 208px; top: 41px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; text-align: center; color: black;">득점<br/><br/></p>
+            <p style="width: 209px; height: 12px; left: 17px; top: 18px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; text-align: center; color: black;">어시스트 랭킹<br/></p>
+            <p style="width: 40px; height: 12px; left: 5px; top: 41px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; text-align: center; color: black;">순위<br/><br/></p>
+            <p style="width: 150px; height: 12px; left: 50px; top: 41px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; text-align: center; color: black;">선수 이름<br/></p>
+            <p style="width: 25px; height: 12px; left: 216px; top: 64px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">14<br/><br/></p>
+            <p style="width: 25px; height: 12px; left: 15px; top: 64px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">1</p>
+            <p style="width: 150px; height: 12px; left: 50px; top: 65px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Erling Haaland<br/></p>
+            <p style="width: 25px; height: 12px; left: 216px; top: 105px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">6<br/><br/></p>
+            <p style="width: 25px; height: 12px; left: 15px; top: 105px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">3<br/><br/></p>
+            <p style="width: 150px; height: 12px; left: 50px; top: 105px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Aleksandar Mitrovic<br/></p>
+            <p style="width: 25px; height: 12px; left: 216px; top: 85px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">7<br/><br/></p>
+            <p style="width: 25px; height: 12px; left: 15px; top: 85px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">2<br/><br/></p>
+            <p style="width: 150px; height: 12px; left: 50px; top: 85px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Harry Kane<br/></p>
+            <p style="width: 25px; height: 12px; left: 216px; top: 145px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">5<br/><br/></p>
+            <p style="width: 25px; height: 12px; left: 15px; top: 145px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">4<br/><br/></p>
+            <p style="width: 150px; height: 12px; left: 50px; top: 145px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Gabriel Jesus<br/></p>
+            <p style="width: 25px; height: 12px; left: 216px; top: 125px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">5<br/><br/></p>
+            <p style="width: 25px; height: 12px; left: 15px; top: 125px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">4<br/><br/></p>
+            <p style="width: 150px; height: 12px; left: 50px; top: 125px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Roberto Firmino<br/></p>
+            <p style="width: 25px; height: 12px; left: 216px; top: 185px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">5<br/><br/></p>
+            <p style="width: 25px; height: 12px; left: 15px; top: 185px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">4<br/><br/></p>
+            <p style="width: 150px; height: 12px; left: 50px; top: 185px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">James Maddison<br/></p>
+            <p style="width: 25px; height: 12px; left: 216px; top: 165px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">5<br/><br/></p>
+            <p style="width: 25px; height: 12px; left: 15px; top: 165px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">4<br/><br/></p>
+            <p style="width: 150px; height: 12px; left: 50px; top: 165px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Phil Foden<br/></p>
+            <div style="width: 140px; height: 33px; left: 55px; top: 204px; position: absolute; background-color: rgba(196.56, 93.37, 93.37, 1); border-radius: 8px;"/>
+            <p style="width: 115px; height: 21px; left: 68px; top: 211px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; text-align: center; color: white;">어시스트 순위 더보기</p>
+        </div>
+    </div>
+    <div style="width: 682px; height: 106px; left: 498px; top: 503px; position: absolute; position: relative;">
+        <div style="width: 63px; height: 49px; left: 0px; top: 4px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"></div>
+        <div style="width: 63px; height: 50px; left: 206px; top: 2px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"/>
+        <div style="width: 62px; height: 49px; left: 138px; top: 4px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"/>
+        <div style="width: 62px; height: 49px; left: 69px; top: 4px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"/>
+        <div style="width: 63px; height: 50px; left: 0px; top: 56px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"/>
+        <div style="width: 63px; height: 50px; left: 206px; top: 55px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"/>
+        <div style="width: 62px; height: 50px; left: 138px; top: 56px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"/>
+        <div style="width: 62px; height: 50px; left: 69px; top: 56px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"/>
+        <div style="width: 63px; height: 50px; left: 275px; top: 55px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"/>
+        <div style="width: 62px; height: 50px; left: 482px; top: 54px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"/>
+        <div style="width: 63px; height: 50px; left: 413px; top: 55px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"/>
+        <div style="width: 63px; height: 50px; left: 344px; top: 55px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"/>
+        <div style="width: 63px; height: 50px; left: 275px; top: 1px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"/>
+        <div style="width: 62px; height: 50px; left: 482px; top: 0px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"/>
+        <div style="width: 63px; height: 50px; left: 413px; top: 1px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"/>
+        <div style="width: 63px; height: 50px; left: 619px; top: 54px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"/>
+        <div style="width: 62px; height: 50px; left: 551px; top: 55px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"/>
+        <div style="width: 63px; height: 50px; left: 619px; top: 0px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"/>
+        <div style="width: 62px; height: 50px; left: 551px; top: 1px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"/>
+        <div style="width: 63px; height: 50px; left: 344px; top: 1px; position: absolute; background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border-radius: 30px;"/>
+    </div>
+    <div style="width: 651px; height: 98px; left: 514px; top: 507px; position: absolute; display: inline-flex; flex-direction: row; align-items: flex-start; justify-content: flex-end;">
+        <img style="width: 31px; height: 37px;" src="https://via.placeholder.com/31x37"/>
+        <div style="width: 2.58px;"/>
+        <img style="width: 31px; height: 31px;" src="https://via.placeholder.com/31x31"/>
+        <div style="width: 2.58px;"/>
+        <img style="width: 32px; height: 31px;" src="https://via.placeholder.com/32x31"/>
+        <div style="width: 2.58px;"/>
+        <img style="width: 15px; height: 31px;" src="https://via.placeholder.com/15x31"/>
+        <div style="width: 2.58px;"/>
+        <img style="width: 32px; height: 31px;" src="https://via.placeholder.com/32x31"/>
+        <div style="width: 2.58px;"/>
+        <img style="width: 32px; height: 39px;" src="https://via.placeholder.com/32x39"/>
+        <div style="width: 2.58px;"/>
+        <img style="width: 31px; height: 31px;" src="https://via.placeholder.com/31x31"/>
+        <div style="width: 2.58px;"/>
+        <img style="width: 31px; height: 31px;" src="https://via.placeholder.com/31x31"/>
+        <div style="width: 2.58px;"/>
+        <img style="width: 31px; height: 32px;" src="https://via.placeholder.com/31x32"/>
+        <div style="width: 2.58px;"/>
+        <img style="width: 31px; height: 36px;" src="https://via.placeholder.com/31x36"/>
+        <div style="width: 2.58px;"/>
+        <img style="width: 31px; height: 31px;" src="https://via.placeholder.com/31x31"/>
+        <div style="width: 2.58px;"/>
+        <img style="width: 25px; height: 31px;" src="https://via.placeholder.com/25x31"/>
+        <div style="width: 2.58px;"/>
+        <img style="width: 31px; height: 32px;" src="https://via.placeholder.com/31x32"/>
+        <div style="width: 2.58px;"/>
+        <img style="width: 22px; height: 31px;" src="https://via.placeholder.com/22x31"/>
+        <div style="width: 2.58px;"/>
+        <img style="width: 32px; height: 34px;" src="https://via.placeholder.com/32x34"/>
+        <div style="width: 2.58px;"/>
+        <img style="width: 32px; height: 34px;" src="https://via.placeholder.com/32x34"/>
+        <div style="width: 2.58px;"/>
+        <img style="width: 38px; height: 37px;" src="https://via.placeholder.com/38x37"/>
+        <div style="width: 2.58px;"/>
+        <img style="width: 32px; height: 35px;" src="https://via.placeholder.com/32x35"/>
+        <div style="width: 2.58px;"/>
+        <img style="width: 31px; height: 36px;" src="https://via.placeholder.com/31x36"/>
+        <div style="width: 2.58px;"/>
+        <img style="width: 31px; height: 42px;" src="https://via.placeholder.com/31x42"/>
+    </div>
+    <div style="width: 967px; height: 182px; left: 395px; top: 250px;">
+        <p style="width: 682px; height: 49px; left: 103px; top: 0px; position: absolute; line-height: 100%; text-align: center; color: black;">Yesterday’s Match  눌러서 경기 기록 확인하기</p>
+        <div style="width: 59px; height: 122px; left: 908px; top: 60px; position: absolute;">
+            <div style="width: 59px; height: 122px; padding-left: 14px; padding-right: 14px; padding-top: 10px; padding-bottom: 9px; background-color: rgba(217, 217, 217, 1); border-radius: 10px; display: flex; flex-direction: row; align-items: center; justify-content: center;">
+                <p style="width: 31px; height: 103px; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">전<br/>체<br/>보<br/>기</p>
+            </div>
+        </div>
+        <div style="width: 207px; height: 122px; left: 681px; top: 60px;">
+            <div style="width: 207px; height: 122px; background-color: rgba(217, 217, 217, 1); border-radius: 10px; position: relative;">
+                <p style="width: 24px; height: 19px; left: 172px; top: 75px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">3</p>
+                <p style="width: 155px; height: 26px; left: 11px; top: 74px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Team 2<br/></p>
+                <p style="width: 155px; height: 26px; left: 11px; top: 17px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Team 1<br/></p>
+                <p style="width: 39px; height: 26px; left: 70px; top: 43px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">VS<br/></p>
+                <p style="width: 24px; height: 19px; left: 172px; top: 17px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">3</p>
+            </div>
+        </div>
+        <div style="width: 207px; height: 122px; left: 454px; top: 60px;">
+            <div style="width: 207px; height: 122px; background-color: rgba(217, 217, 217, 1); border-radius: 10px; position: relative;">
+                <p style="width: 24px; height: 19px; left: 172px; top: 75px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">3</p>
+                <p style="width: 155px; height: 26px; left: 11px; top: 74px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Team 2<br/></p>
+                <p style="width: 155px; height: 26px; left: 11px; top: 17px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Team 1<br/></p>
+                <p style="width: 39px; height: 26px; left: 70px; top: 43px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">VS<br/></p>
+                <p style="width: 24px; height: 19px; left: 172px; top: 17px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">3</p>
+            </div>
+        </div>
+        <div style="width: 207px; height: 122px; left: 227px; top: 60px; position: absolute;">
+            <div style="width: 207px; height: 122px; background-color: rgba(217, 217, 217, 1); border-radius: 10px; position: relative;">
+                <p style="width: 24px; height: 19px; left: 172px; top: 75px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">3</p>
+                <p style="width: 155px; height: 26px; left: 11px; top: 74px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Team 2<br/></p>
+                <p style="width: 155px; height: 26px; left: 11px; top: 17px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Team 1<br/></p>
+                <p style="width: 39px; height: 26px; left: 70px; top: 43px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">VS<br/></p>
+                <p style="width: 24px; height: 19px; left: 172px; top: 17px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">3</p>
+            </div>
+        </div>
+        <div style="width: 207px; height: 122px; left: 0px; top: 60px; position: absolute;">
+            <div style="width: 207px; height: 122px; background-color: rgba(217, 217, 217, 1); border-radius: 10px; position: relative;">
+                <p style="width: 24px; height: 19px; left: 172px; top: 75px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">3</p>
+                <p style="width: 155px; height: 26px; left: 11px; top: 74px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Team 2<br/></p>
+                <p style="width: 155px; height: 26px; left: 11px; top: 17px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Team 1<br/></p>
+                <p style="width: 39px; height: 26px; left: 70px; top: 43px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">VS<br/></p>
+                <p style="width: 24px; height: 19px; left: 172px; top: 17px; position: absolute; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">3</p>
+            </div>
+        </div>
+    </div>
+    <div style="width: 967px; height: 178px; left: 395px; top: 40px; position: absolute; position: relative;">
+        <p style="width: 682px; height: 49px; left: 103px; top: 0px; position: absolute; line-height: 100%; text-align: center; color: black;">Today’s Match  눌러서 전력 비교 확인하기</p>
+        <div style="width: 59px; height: 122px; left: 908px; top: 56px; position: absolute;">
+            <div style="width: 59px; height: 122px; padding-left: 14px; padding-right: 14px; padding-top: 10px; padding-bottom: 9px; background-color: rgba(217, 217, 217, 1); border-radius: 10px; display: flex; flex-direction: row; align-items: center; justify-content: center;">
+                <p style="width: 31px; height: 103px; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">전<br/>체<br/>보<br/>기</p>
+            </div>
+        </div>
+        <div style="width: 207px; height: 122px; left: 681px; top: 55px; position: absolute;">
+            <div style="width: 207px; height: 122px; padding-left: 11px; padding-right: 11px; padding-top: 21px; padding-bottom: 18px; background-color: rgba(217, 217, 217, 1); border-radius: 10px; display: inline-flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+                <p style="width: 185px; height: 26px; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Team 1<br/></p>
+                <div style="height: 2.50px;"/>
+                <p style="width: 46.55px; height: 26px; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">VS<br/></p>
+                <div style="height: 2.50px;"/>
+                <p style="width: 185px; height: 26px; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Team 2<br/></p>
+            </div>
+        </div>
+        <div style="width: 207px; height: 122px; left: 454px; top: 55px; position: absolute;">
+            <div style="width: 207px; height: 122px; padding-left: 11px; padding-right: 11px; padding-top: 21px; padding-bottom: 18px; background-color: rgba(217, 217, 217, 1); border-radius: 10px; display: inline-flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+                <p style="width: 185px; height: 26px; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Team 1<br/></p>
+                <div style="height: 2.50px;"/>
+                <p style="width: 46.55px; height: 26px; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">VS<br/></p>
+                <div style="height: 2.50px;"/>
+                <p style="width: 185px; height: 26px; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Team 2<br/></p>
+            </div>
+        </div>
+        <div style="width: 207px; height: 122px; left: 227px; top: 56px; position: absolute;">
+            <div style="width: 207px; height: 122px; padding-left: 11px; padding-right: 11px; padding-top: 21px; padding-bottom: 18px; background-color: rgba(217, 217, 217, 1); border-radius: 10px; display: inline-flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+                <p style="width: 185px; height: 26px; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Team 1<br/></p>
+                <div style="height: 2.50px;"/>
+                <p style="width: 46.55px; height: 26px; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">VS<br/></p>
+                <div style="height: 2.50px;"/>
+                <p style="width: 185px; height: 26px; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Team 2<br/></p>
+            </div>
+        </div>
+        <div style="width: 207px; height: 122px; left: 0px; top: 56px; position: absolute;">
+            <div style="width: 207px; height: 122px; padding-left: 11px; padding-right: 11px; padding-top: 21px; padding-bottom: 18px; background-color: rgba(217, 217, 217, 1); border-radius: 10px; display: flex; flex-direction: row; align-items: center; justify-content: center;">
+                <div style="width: 185px; height: 83px; display: inline-flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+                    <p style="width: 185px; height: 26px; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Team 1<br/></p>
+                    <div style="height: 2.50px;"/>
+                    <p style="width: 46.55px; height: 26px; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">VS<br/></p>
+                    <div style="height: 2.50px;"/>
+                    <p style="width: 185px; height: 26px; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">Team 2<br/></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="width: 500px; height: 349px; left: 364px; top: 640px; position: absolute; display: inline-flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+        <div style="width: 500px; height: 30px;">
+            <div style="width: 500px; height: 30px; padding-top: 2px; padding-bottom: 2px; padding-left: 168px; padding-right: 182px; background-color: rgba(217, 217, 217, 1); display: flex; flex-direction: row; align-items: center; justify-content: flex-start;">
+                <p style="width: 150.54px; height: 26.13px; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">네이버 HOT 기사</p>
+            </div>
+        </div>
+        <div style="height: 5.54px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 364px; top: 598px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 365.79px; top: 598px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.54px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 364px; top: 574px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 365.79px; top: 574px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.54px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 364px; top: 550px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 365.79px; top: 550px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.54px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 364px; top: 526px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 365.79px; top: 526px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.54px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 364px; top: 502px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 365.79px; top: 502px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.54px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 364px; top: 478px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 365.79px; top: 478px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.54px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 364px; top: 454px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 365.79px; top: 454px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.54px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 364px; top: 430px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 365.79px; top: 430px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.54px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 364px; top: 406px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 365.79px; top: 406px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.54px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 364px; top: 382px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 365.79px; top: 382px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.54px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 364px; top: 358px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 365.79px; top: 358px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.54px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 364px; top: 334px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 365.79px; top: 334px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.54px;"/>
+        <div style="width: 500px; height: 19px; background-color: rgba(217, 217, 217, 1);"/>
+    </div>
+    <div style="width: 500px; height: 349px; left: 905px; top: 640px; position: absolute; display: inline-flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+        <div style="width: 500px; height: 31px;">
+            <div style="width: 500px; height: 31px; padding-left: 138px; padding-right: 138px; padding-top: 3px; padding-bottom: 1px; background-color: rgba(217, 217, 217, 1); display: flex; flex-direction: row; align-items: center; justify-content: center;">
+                <p style="width: 223.40px; height: 27px; font-size: 19px; font-weight: 600; line-height: 130%; text-align: center; color: black;">BBC HOT 기사</p>
+            </div>
+        </div>
+        <div style="height: 5.46px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 905px; top: 598px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 906.79px; top: 598px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">Mwepu forced to retire with heart condition</p>
+        </div>
+        <div style="height: 5.46px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 905px; top: 574px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 906.79px; top: 574px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">Saka double as Arsenal beat Liverpool to go top</p>
+        </div>
+        <div style="height: 5.46px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 905px; top: 550px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 906.79px; top: 550px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.46px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 905px; top: 526px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 906.79px; top: 526px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.46px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 905px; top: 502px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 906.79px; top: 502px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.46px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 905px; top: 478px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 906.79px; top: 478px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.46px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 905px; top: 454px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 906.79px; top: 454px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.46px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 905px; top: 430px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 906.79px; top: 430px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.46px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 905px; top: 406px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 906.79px; top: 406px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.46px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 905px; top: 382px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 906.79px; top: 382px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.46px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 905px; top: 358px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 906.79px; top: 358px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.46px;"/>
+        <div style="width: 500px; height: 19px; position: relative;">
+            <div style="width: 500px; height: 19px; left: 905px; top: 334px; position: absolute; background-color: rgba(217, 217, 217, 1);"/>
+            <p style="width: 498.21px; height: 19px; left: 906.79px; top: 334px; position: absolute; font-size: 14px; font-weight: 600; line-height: 130%; color: black;">'여전히 강팀' 펩, "리버풀전, EPL서 가장 큰 경기"</p>
+        </div>
+        <div style="height: 5.46px;"/>
+        <div style="width: 500px; height: 19px; padding-top: 3px; padding-bottom: 9px; padding-left: 149px; padding-right: 152px; background-color: rgba(217, 217, 217, 1); display: inline-flex; flex-direction: row; align-items: center; justify-content: center;">
+            <p style="width: 199.47px; height: 7px; font-size: 12px; font-weight: 600; line-height: 130%; color: rgba(213.56, 196.95, 47.46, 1);">더 많은 BBC 기사 보러가기</p>
+        </div>
+    </div>
+    <p style="width: 150px; height: 7px; left: 532px; top: 973px; position: absolute; font-size: 12px; font-weight: 600; line-height: 130%; color: rgba(102.85, 215.69, 63.21, 1);">더 많은 네이버 기사 보러가기</p>
 </div>
 </body>
 </html>
