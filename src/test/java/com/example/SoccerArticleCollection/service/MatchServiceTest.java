@@ -31,7 +31,9 @@ class MatchServiceTest {
         List<Match> list = new ArrayList<>();
         for (Match match : allByHasMatchIsTrue) {
             String substring = match.getMatchLink().substring(35, 43);
-            match.setDate(Date.valueOf(substring));
+            StringBuilder sb = new StringBuilder();
+            sb.append(substring,0, 4).append("-").append(substring, 4, 6).append("-").append(substring, 6, 8);
+            Date.valueOf(sb.toString());
             list.add(match);
         }
         matchRepository.saveAll(list);
@@ -64,13 +66,14 @@ class MatchServiceTest {
     @Test
     @DisplayName("자동 크롤링 테스트")
     void autoCrawlTest() {
+        matchRepository.deleteAll();
         matchService.saveMatchList();
     }
 
     @Test
     @DisplayName("매치 결과 삽입(수정) 테스트")
     void modifyMatchResult() throws BaseException {
-        PatchMatchResultReq patchMatchResultReq = new PatchMatchResultReq(5568L, 2, 3);
+        PatchMatchResultReq patchMatchResultReq = new PatchMatchResultReq(7448L, 2, 3);
         Match match = matchService.modifyMatchResult(patchMatchResultReq);
         System.out.println(match);
     }

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import javax.persistence.*;
 import java.sql.Date;
+import java.sql.Time;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,6 +25,9 @@ public class Match {
 
     @Column(name = "match_date")
     private Date date;
+
+    @Column(name = "match_time")
+    private Time time;
 
     @Column(name = "hasMatch")
     private boolean hasMatch;
@@ -53,10 +57,11 @@ public class Match {
     private String matchLink;
 
     @Builder
-    public Match(Date date, String matchTeam1, int matchTeam1Score, String matchTeam2, int matchTeam2Score,
+    public Match(Date date, Time time, String matchTeam1, int matchTeam1Score, String matchTeam2, int matchTeam2Score,
                  String matchWinner, String matchInfo, String matchLink) {
         this.hasMatch = true;
         this.date = date;
+        this.time = time;
         this.matchTeam1 = matchTeam1;
         this.matchTeam1Score = matchTeam1Score;
         this.matchTeam2 = matchTeam2;
@@ -72,11 +77,13 @@ public class Match {
         this.text = "경기 일정이 존재하지 않습니다.";
     }
 
+
     @Override
     public String toString() {
         return "Match{" +
                 "matchingId=" + matchingId +
-                ", date='" + date + '\'' +
+                ", date=" + date +
+                ", time=" + time +
                 ", hasMatch=" + hasMatch +
                 ", text='" + text + '\'' +
                 ", matchTeam1='" + matchTeam1 + '\'' +

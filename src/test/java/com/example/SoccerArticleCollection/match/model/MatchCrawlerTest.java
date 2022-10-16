@@ -3,7 +3,6 @@ package com.example.SoccerArticleCollection.match.model;
 import com.example.SoccerArticleCollection.domain.match.MatchCrawler;
 import com.example.SoccerArticleCollection.domain.match.UrlMaker;
 import org.junit.jupiter.api.Test;
-import org.springframework.test.annotation.Commit;
 
 class MatchCrawlerTest {
 
@@ -15,7 +14,6 @@ class MatchCrawlerTest {
     }
 
     @Test
-    @Commit
     void matchCrawling() {
         UrlMaker urlMaker = new UrlMaker();
         urlMaker.setYear("2022");

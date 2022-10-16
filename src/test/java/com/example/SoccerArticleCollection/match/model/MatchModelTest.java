@@ -9,7 +9,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
@@ -30,7 +29,7 @@ class MatchModelTest {
     @Test
     @DisplayName("Match To GetMatchRes Test")
     void getMatchRes() {
-        Optional<Match> byId = matchRepository.findById(5143L);
+        Optional<Match> byId = matchRepository.findById(7448L);
         Match match = byId.get();
         List<GetMatchRes> getMatchResList = new ArrayList<>();
         getMatchResList.add(GetHasMatchBeforeRes.from(match));

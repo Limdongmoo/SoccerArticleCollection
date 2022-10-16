@@ -18,6 +18,7 @@ public interface MatchRepository extends JpaRepository<Match, Long> {
 
     List<Match> findAllByHasMatchIsTrue();
 
+
     Optional<Match> findByMatchingId(Long matchId);
 
     @Query("SELECT m FROM Match m WHERE year(m.date) =?1 and month(m.date) =?2 and day(m.date) =?3")
