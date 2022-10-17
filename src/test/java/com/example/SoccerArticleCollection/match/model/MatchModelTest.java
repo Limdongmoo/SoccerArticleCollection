@@ -29,7 +29,7 @@ class MatchModelTest {
     @Test
     @DisplayName("Match To GetMatchRes Test")
     void getMatchRes() {
-        Optional<Match> byId = matchRepository.findById(7448L);
+        Optional<Match> byId = matchRepository.findById(8116L);
         Match match = byId.get();
         List<GetMatchRes> getMatchResList = new ArrayList<>();
         getMatchResList.add(GetHasMatchBeforeRes.from(match));

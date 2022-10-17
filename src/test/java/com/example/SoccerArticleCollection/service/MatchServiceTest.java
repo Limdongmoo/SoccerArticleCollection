@@ -73,7 +73,7 @@ class MatchServiceTest {
     @Test
     @DisplayName("매치 결과 삽입(수정) 테스트")
     void modifyMatchResult() throws BaseException {
-        PatchMatchResultReq patchMatchResultReq = new PatchMatchResultReq(7448L, 2, 3);
+        PatchMatchResultReq patchMatchResultReq = new PatchMatchResultReq(8116L, 2, 3);
         Match match = matchService.modifyMatchResult(patchMatchResultReq);
         System.out.println(match);
     }
